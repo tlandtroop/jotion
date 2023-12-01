@@ -9,7 +9,7 @@ import {
   Trash,
 } from "lucide-react";
 import { useMutation } from "convex/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { Id } from "@/convex/_generated/dataModel";
@@ -50,15 +50,15 @@ export const Item = ({
   onExpand,
   expanded,
 }: ItemProps) => {
+  const router = useRouter();
   const { user } = useUser();
   const create = useMutation(api.documents.create);
   const archive = useMutation(api.documents.archive);
-  // const router = useRouter();
 
   const onArchive = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.stopPropagation();
     if (!id) return;
-    const promise = archive({ id });
+    const promise = archive({ id }).then(() => router.push("/documents"));
 
     toast.promise(promise, {
       loading: "Moving to trash...",
@@ -83,7 +83,7 @@ export const Item = ({
         if (!expanded) {
           onExpand?.();
         }
-        // router.push(`/documents/${documentId}`)
+        router.push(`/documents/${documentId}`);
       },
     );
 
