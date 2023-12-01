@@ -20,7 +20,7 @@ export const Banner = ({ documentId }: BannerProps) => {
   const restore = useMutation(api.documents.restore);
 
   const onRemove = () => {
-    const promise = remove({ id: documentId })
+    const promise = remove({ id: documentId });
 
     toast.promise(promise, {
       loading: "Deleting note...",
