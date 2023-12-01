@@ -35,7 +35,7 @@ export const CoverImageModal = () => {
         file,
         options: {
           replaceTargetUrl: coverImage.url,
-        },
+        }
       });
 
       await update({

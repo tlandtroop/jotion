@@ -4,9 +4,7 @@ import { mutation, query } from "./_generated/server";
 import { Doc, Id } from "./_generated/dataModel";
 
 export const archive = mutation({
-  args: {
-    id: v.id("documents"),
-  },
+  args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -127,9 +125,7 @@ export const getTrash = query({
 });
 
 export const restore = mutation({
-  args: {
-    id: v.id("documents"),
-  },
+  args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -186,9 +182,7 @@ export const restore = mutation({
 });
 
 export const remove = mutation({
-  args: {
-    id: v.id("documents"),
-  },
+  args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -236,9 +230,7 @@ export const getSearch = query({
 });
 
 export const getById = query({
-  args: {
-    documentId: v.id("documents"),
-  },
+  args: { documentId: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -305,9 +297,7 @@ export const update = mutation({
 });
 
 export const removeIcon = mutation({
-  args: {
-    id: v.id("documents"),
-  },
+  args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
@@ -336,9 +326,7 @@ export const removeIcon = mutation({
 });
 
 export const removeCoverImage = mutation({
-  args: {
-    id: v.id("documents"),
-  },
+  args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
 
