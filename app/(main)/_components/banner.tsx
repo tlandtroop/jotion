@@ -16,12 +16,11 @@ interface BannerProps {
 
 export const Banner = ({ document }: BannerProps) => {
   const router = useRouter();
-
+  const { edgestore } = useEdgeStore();
   const remove = useMutation(api.documents.remove);
   const restore = useMutation(api.documents.restore);
 
   const onRemove = async () => {
-    const { edgestore } = useEdgeStore();
 
     if (document.coverImage) {
       const url = document.coverImage;
